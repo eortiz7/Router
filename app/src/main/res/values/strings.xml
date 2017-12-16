@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyFirst</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button1"></string>
+    <string name="button2"></string>
+    <string name="button3"></string>
+    <string name="title_activity_maps">Map</string>
+</resources>
