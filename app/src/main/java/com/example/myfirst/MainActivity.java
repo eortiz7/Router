@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         lvInvoices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent toNav = new Intent(MainActivity.this,DisplayMessageActivity.class);
+                Intent toNav = new Intent(MainActivity.this,MapsActivity.class);
                 toNav.putExtra(INVOICE_KEY, adapterInvoices.getItem(position));
                 startActivity(toNav);
             }
