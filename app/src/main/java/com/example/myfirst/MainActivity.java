@@ -14,14 +14,19 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private ListView lvInvoices;
+    //private Button routeButton;
     private InvoiceAdapter adapterInvoices;
     public static final String INVOICE_KEY = "invoice";
+    //private final Intent route = new Intent(MainActivity.this, MapsRouteActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("Covert");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //routeButton = (Button) findViewById(R.id.routeButton);
         lvInvoices = (ListView)findViewById(R.id.invListView);
         ArrayList<Invoice> aInvoices = new ArrayList<Invoice>();
         adapterInvoices = new InvoiceAdapter(this, aInvoices);
@@ -31,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         aInvoices.add(new Invoice( "323112", "12172 N Mopac Expy, Austin, TX 78758", "Riethmeyer's Auto Repair Inc"));
         aInvoices.add(new Invoice( "313113", "8950 Research Blvd, Austin, TX 78758", "Body Shop"));
 
+        //route.putParcelableArrayListExtra("WayPoints", aInvoices);
+
+
+
         lvInvoices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -39,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toNav);
             }
         });
+
+        /*routeButton.setOnClickListener(new View.OnClickListener(){
+           @Override
+            public void onClick(View v){
+               startActivity(route);
+           }
+        });
+        */
 
         /*Button b1 = (Button)findViewById(R.id.button1);
         Button b2 = (Button)findViewById(R.id.button2);

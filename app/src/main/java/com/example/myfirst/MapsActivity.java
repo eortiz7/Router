@@ -7,8 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,17 +35,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         intent = getIntent();
         invoice = (Invoice) getIntent().getParcelableExtra(MainActivity.INVOICE_KEY);
-       /* geocoder = new Geocoder(this, Locale.getDefault());
-
+        geocoder = new Geocoder(this, Locale.getDefault());
+        Log.v("invoiceinfo: ", invoice.getAddress());
 
         try
         {
             address = (geocoder.getFromLocationName(invoice.getAddress(),1)).get(0);
+            Log.v("address latlan", "Lat: " + address.getLatitude()+" Lon"+ address.getLongitude());
         }
         catch(Exception e)
         {
-            Log.e("Error", e.getMessage());
-        }*/
+            Log.e("error", e.getMessage());
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -70,8 +70,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng customer = new LatLng(-33.8,151.2);//address.getLatitude(), address.getLongitude());
+        LatLng customer = new LatLng(address.getLatitude(), address.getLongitude());
+
         mMap.addMarker(new MarkerOptions().position(customer).title(invoice.getCustomerName()));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(customer));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(customer));
+        moveToCurrentLocation(customer);
+    }
+
+    private void moveToCurrentLocation(LatLng currentLocation)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,15));
+        // Zoom in, animating the camera.
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        // Zoom out to zoom level 10, animating with a duration of 1 seconds.
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
     }
 }
