@@ -38,7 +38,15 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+
+        <service
+            android:name=".FetchAddressIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".MapsRouteActivity"
+            android:label="@string/title_activity_maps_route"></activity>
     </application>
 
 </manifest>
