@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "863995527109",
+    "firebase_url": "https://covert-router.firebaseio.com",
+    "project_id": "covert-router",
+    "storage_bucket": "covert-router.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863995527109:android:95f7df827eb68f1b",
+        "android_client_info": {
+          "package_name": "com.example.myfirst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863995527109-463ssdg4raafl7tigitgd2e2i28m9mqj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myfirst",
+            "certificate_hash": "caab032165113339eb44b8146bdde2e31b23c9ec"
+          }
+        },
+        {
+          "client_id": "863995527109-0t293q0oip2jfm2j72la7icoelp299k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9G5IK6K8psJlrQ__sYvWqXAaoYczFW-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863995527109-0t293q0oip2jfm2j72la7icoelp299k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
